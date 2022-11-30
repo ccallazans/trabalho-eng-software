@@ -1,5 +1,6 @@
 package Livro;
 
+
 import Usuario.Usuario;
 
 public class Emprestimo {
@@ -9,5 +10,12 @@ public class Emprestimo {
     public Emprestimo(Usuario usuario, Livro livro) {
         this.usuario = usuario;
         this.livro = livro;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+    public Livro getLivro() {
+        return livro;
     }
 }

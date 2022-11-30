@@ -1,13 +1,32 @@
 package Usuario;
 
-public abstract class Usuario implements FazerEmprestimo, FazerReserva {
-    public int codigoIdentificacao;
-    String nome;
+import Biblioteca.Biblioteca;
+import Notificacao.Observer;
 
-    int emprestimosAbertos = 0;
+public abstract class Usuario implements Observer {
+    int codigoIdentificacao;
+    String nome;
+    static Biblioteca biblioteca;
+    boolean devedor = false;
 
     public Usuario(int codigoIdentificacao, String nome) {
         this.codigoIdentificacao = codigoIdentificacao;
         this.nome = nome;
+    }
+
+    public int getCodigoIdentificacao() {
+        return codigoIdentificacao;
+    }
+    public String getNome() {
+        return nome;
+    }
+
+    public boolean isDevedor() {
+        return devedor;
+    }
+
+
+    public boolean validarEmprestimo(int codigoLivro) {
+        return false;
     }
 }

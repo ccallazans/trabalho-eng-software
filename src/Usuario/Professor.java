@@ -1,31 +1,16 @@
 package Usuario;
 
-public class Professor extends Usuario {
+import Livro.Livro;
 
-    int tempoEmprestimo = 7;
+public class Professor extends Usuario {
 
     public Professor(int codigoIdentificacao, String nome) {
         super(codigoIdentificacao, nome);
-        tempoEmprestimo = 7;
     }
 
-    @Override
-    public void novoEmprestimo() {
-
-    }
 
     @Override
-    public void removerEmprestimo() {
-
-    }
-
-    @Override
-    public void novaReserva() {
-
-    }
-
-    @Override
-    public void removerReserva() {
-
+    public void update(Livro livro) {
+        System.out.println("Professor " + this.getNome() + " foi notificado do livro " + livro.getTitulo());
     }
 }

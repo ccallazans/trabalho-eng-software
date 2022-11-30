@@ -10,4 +10,12 @@ public class Reserva {
         this.usuario = usuario;
         this.livro = livro;
     }
+
+    public Livro getLivro() {
+        return livro;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
 }

@@ -1,30 +1,46 @@
 package Usuario;
 
+import Livro.Livro;
+
 public class AlunoPosGraduacao extends Usuario {
 
-    int tempoEmprestimo = 4;
+    int qntEmprestimo = 0;
+    int maxQntEmprestimo = 4;
 
     public AlunoPosGraduacao(int codigoIdentificacao, String nome) {
         super(codigoIdentificacao, nome);
     }
 
+
     @Override
-    public void novoEmprestimo() {
+    public void update(Livro livro) {
 
     }
 
-    @Override
-    public void removerEmprestimo() {
+    public boolean validarEmprestimo(int codigoLivro) {
+        if (this.isDevedor()) {
+            return false;
+        }
 
-    }
+        if (!(this.qntEmprestimo < maxQntEmprestimo)) {
+            return false;
+        }
 
-    @Override
-    public void novaReserva() {
+        int qntExemplarLivro = this.biblioteca.getQuantidadeExemplarLivro(codigoLivro);
+        int qntReservaLivro = this.biblioteca.getQuantidadeReservaLivro(codigoLivro);
 
-    }
+        if (!this.biblioteca.isUsuarioLivroReserva(this.getCodigoIdentificacao(), codigoLivro)) {
+            if (qntReservaLivro >= qntExemplarLivro) {
+                return false;
+            }
+        }
 
-    @Override
-    public void removerReserva() {
+        if (qntReservaLivro >= qntExemplarLivro) {
 
+        }
+
+
+
+        return false;
     }
 }

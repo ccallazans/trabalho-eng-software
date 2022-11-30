@@ -1,30 +1,21 @@
 package Usuario;
 
-public class AlunoGraduacao extends Usuario {
+import Livro.Livro;
 
-    int tempoEmprestimo = 3;
+public class AlunoGraduacao extends Usuario {
 
     public AlunoGraduacao(int codigoIdentificacao, String nome) {
         super(codigoIdentificacao, nome);
     }
 
-    @Override
-    public void novoEmprestimo() {
-
+    public void fazerEmprestimo(int codigoLivro) {
+        if (this.isDevedor()) {
+            System.out.println("Erro: Usuário é devedor");
+        }
     }
 
     @Override
-    public void removerEmprestimo() {
-
-    }
-
-    @Override
-    public void novaReserva() {
-
-    }
-
-    @Override
-    public void removerReserva() {
+    public void update(Livro livro) {
 
     }
 }

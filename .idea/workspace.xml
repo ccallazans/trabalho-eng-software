@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ce7bd26-bfeb-4727-b122-be6c232ef5ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Biblioteca/Biblioteca.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Livro/Emprestimo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Livro/Exemplar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Livro/Livro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Livro/Reserva.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Usuario/AlunoGraduacao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Usuario/AlunoPosGraduacao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Usuario/FazerEmprestimo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Usuario/FazerReserva.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Usuario/Professor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Usuario/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Notificacao/Consulta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Notificacao/Notificacao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Notificacao/Observer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Livro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Biblioteca/Biblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Biblioteca/Biblioteca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Livro/Emprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Livro/Emprestimo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Livro/Exemplar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Livro/Exemplar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Livro/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Livro/Livro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Livro/Reserva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Livro/Reserva.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Usuario/AlunoGraduacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Usuario/AlunoGraduacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Usuario/AlunoPosGraduacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Usuario/AlunoPosGraduacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Usuario/FazerEmprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Usuario/FazerEmprestimo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Usuario/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Usuario/Professor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Usuario/Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
