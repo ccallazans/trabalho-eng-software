@@ -47,7 +47,7 @@ public class Biblioteca {
         Livro emprestimoLivro = encontrarLivroPorId(idLivro);
 
         if (emprestimoUsuario != null && emprestimoLivro != null) {
-
+            System.out.println("encontrou");
             emprestimoUsuario.getEmprestimoStrategy().emprestar(emprestimoUsuario, emprestimoLivro);
         }
 

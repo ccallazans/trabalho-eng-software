@@ -2,7 +2,6 @@ package Livro;
 
 import java.util.ArrayList;
 
-import LivroState.EstadoLivro;
 import Observable.Observer;
 import Observable.Subject;
 import Reserva.Reserva;
@@ -16,11 +15,10 @@ public class Livro implements Subject {
     String autores;
     String edicao;
     int anoDaPublicação;
-    EstadoLivro estado;
 
-    ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
+    private ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
 
-    ArrayList<Reserva> reservas = new ArrayList<Reserva>();
+    private ArrayList<Reserva> reservas = new ArrayList<Reserva>();
 
     public Livro(String codigoIdentificacao, String titulo, String editora, String autores, String edicao,
             int anoDaPublicação) {
@@ -60,10 +58,6 @@ public class Livro implements Subject {
         return autores;
     }
 
-    public EstadoLivro getEstado() {
-        return estado;
-    }
-
     public ArrayList<Reserva> getReservas() {
         return reservas;
     }
@@ -93,7 +87,7 @@ public class Livro implements Subject {
     }
 
     public ArrayList<Exemplar> getExemplares() {
-        return exemplares;
+        return this.exemplares;
     }
 
     public void setExemplares(ArrayList<Exemplar> exemplares) {
@@ -127,10 +121,6 @@ public class Livro implements Subject {
 
         }
 
-    }
-
-    public void setEstado(EstadoLivro estado) {
-        this.estado = estado;
     }
 
     public Reserva EncontrarReservaPorIdUsuario(String id) {

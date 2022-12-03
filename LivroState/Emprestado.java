@@ -1,18 +1,18 @@
 package LivroState;
 
-import Livro.Livro;
+import Livro.Exemplar;
 
-public class Emprestado extends EstadoLivro {
+public class Emprestado extends EstadoExemplar {
 
-    public Emprestado(Livro livro) {
-        super(livro);
+    public Emprestado(Exemplar exemplar) {
+        super(exemplar);
         // TODO Auto-generated constructor stub
     }
 
     @Override
     public void onDisponivel() {
         // TODO Auto-generated method stub
-        livro.setEstado(new Disponivel(livro));
+        exemplar.setEstado(new Disponivel(exemplar));
 
     }
 

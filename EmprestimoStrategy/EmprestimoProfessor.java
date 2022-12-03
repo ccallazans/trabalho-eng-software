@@ -5,17 +5,13 @@ import Livro.Livro;
 import Usuario.AlunoGraduacao;
 import Usuario.Usuario;
 
-public class EmprestimoAlunoGraduacao implements EmprestimoStrategy {
+public class EmprestimoProfessor implements EmprestimoStrategy {
 
     @Override
     public void emprestar(Usuario usuario, Livro livro) {
 
         // TODO Auto-generated method stub
         Boolean regra1 = livro.getExemplares().size() > 0;
-        if (!regra1) {
-            System.out.println("erro na regra 1");
-            return;
-        }
 
         System.out.println("regra1: " + regra1);
 
@@ -33,13 +29,12 @@ public class EmprestimoAlunoGraduacao implements EmprestimoStrategy {
         System.out.println("Regra 5: " + regra5);
 
         if (regra1 && regra2 && regra3 && regra4 && regra5) {
-
             usuario.getEmprestimos().add(new Emprestimo(usuario, livro));
-
             System.out.println("emprestimo realizado");
 
         } else {
             System.out.println("emprestimo nao realizado");
+
         }
 
     }

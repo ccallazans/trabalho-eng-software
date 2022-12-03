@@ -1,5 +1,7 @@
 package Usuario;
 
+import EmprestimoStrategy.EmprestimoProfessor;
+import Livro.Livro;
 import ReservarStrategy.ReservaProfessor;
 
 public class Professor extends Usuario {
@@ -11,6 +13,8 @@ public class Professor extends Usuario {
         super(codigoIdentificacao, nome);
         this.qtdNotificacoes = 0;
         this.reservaStrategy = new ReservaProfessor();
+        this.emprestimoStrategy = new EmprestimoProfessor();
+
     }
 
     @Override
@@ -26,6 +30,11 @@ public class Professor extends Usuario {
 
     public void setQtdNotificacoes(int qtdNotificacoes) {
         this.qtdNotificacoes = qtdNotificacoes;
+    }
+
+    @Override
+    public void reservar(Livro livro, String data) {
+        this.reservaStrategy.reservar(this, livro, data);
     }
 
 }
