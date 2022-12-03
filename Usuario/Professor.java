@@ -1,5 +1,6 @@
 package Usuario;
 
+import DevolverStrategy.Devolver;
 import EmprestimoStrategy.EmprestimoProfessor;
 import Livro.Livro;
 import ReservarStrategy.ReservaProfessor;
@@ -14,6 +15,7 @@ public class Professor extends Usuario {
         this.qtdNotificacoes = 0;
         this.reservaStrategy = new ReservaProfessor();
         this.emprestimoStrategy = new EmprestimoProfessor();
+        this.devolverStrategy = new Devolver();
 
     }
 

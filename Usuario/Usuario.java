@@ -2,6 +2,7 @@ package Usuario;
 
 import java.util.ArrayList;
 
+import DevolverStrategy.DevolverStrategy;
 import Emprestimo.Emprestimo;
 import EmprestimoStrategy.EmprestimoStrategy;
 import Livro.Livro;
@@ -14,8 +15,14 @@ public abstract class Usuario implements Observer {
     String codigoIdentificacao;
     String nome;
     Boolean devedor;
+    int tempoDeEmprestimoDias;
 
     ReservarStrategy reservaStrategy;
+    DevolverStrategy devolverStrategy;
+
+    public DevolverStrategy getDevolverStrategy() {
+        return devolverStrategy;
+    }
 
     public Boolean getDevedor() {
         return devedor;
@@ -101,4 +108,16 @@ public abstract class Usuario implements Observer {
         return null;
     }
 
+    public boolean hasEmprestimoPorIdLivro(String id) {
+        for (Emprestimo emprestimo : this.emprestimos) {
+            if (emprestimo.getLivro().getCodigoIdentificacao().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int getTempoDeEmprestimoDias() {
+        return tempoDeEmprestimoDias;
+    }
 }

@@ -5,6 +5,7 @@ import Livro.Exemplar;
 public abstract class EstadoExemplar {
 
     protected Exemplar exemplar;
+    public boolean status;
 
     public EstadoExemplar(Exemplar exemplar) {
         this.exemplar = exemplar;

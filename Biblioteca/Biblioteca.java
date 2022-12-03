@@ -8,6 +8,7 @@ import Usuario.AlunoGraduacao;
 import Usuario.AlunoPosGraduacao;
 import Usuario.Professor;
 import Usuario.Usuario;
+import Reserva.Reserva;
 
 public class Biblioteca {
     private static Biblioteca instance;
@@ -49,6 +50,47 @@ public class Biblioteca {
         if (emprestimoUsuario != null && emprestimoLivro != null) {
             System.out.println("encontrou");
             emprestimoUsuario.getEmprestimoStrategy().emprestar(emprestimoUsuario, emprestimoLivro);
+        }
+    }
+
+    public void devolver(String idUsuario, String idLivro) {
+
+        Usuario devolverEmprestimoUsuario = EncontrarUsuarioPorId(idUsuario);
+        Livro devolverEmprestimoLivro = encontrarLivroPorId(idLivro);
+
+        if (devolverEmprestimoUsuario != null && devolverEmprestimoLivro != null) {
+            System.out.println("encontrou");
+            devolverEmprestimoUsuario.getDevolverStrategy().devolver(devolverEmprestimoUsuario, devolverEmprestimoLivro);
+        }
+    }
+
+    public void consultarLivro(String idLivro) {
+
+        Livro livro = encontrarLivroPorId(idLivro);
+        int qntReservas = livro.getReservas().size();
+
+        System.out.println("Título: " + livro.getTitulo() +
+                "\nQnt Reservas: " + qntReservas);
+
+        if (qntReservas > 0) {
+            System.out.println("Reservas - Informações:");
+            for (Reserva reserva: livro.getReservas()) {
+                System.out.println(reserva.getUsuario().getNome());
+            }
+        }
+
+        int qntExemplar = livro.getExemplares().size();
+        if (qntExemplar > 0) {
+            System.out.println("Exemplar - Informações:");
+            for (Exemplar exemplar: livro.getExemplares()) {
+                System.out.println("Codigo: " + exemplar.getCodigoExemplar() +
+                        "\nStatus: " + exemplar.getStatusString());
+                if (!exemplar.getEstado().status) {
+                    System.out.println("Usuario: " + exemplar.getUltimoEmprestimo().getUsuario().getNome() +
+                    "\nData de Empréstimo: " + exemplar.getUltimoEmprestimo().getDataEmprestimo() +
+                            "\nData de Devolução: " + exemplar.getUltimoEmprestimo().getDataDevolucao());
+                }
+            }
         }
 
     }
@@ -96,6 +138,14 @@ public class Biblioteca {
                 "Addison-Wesley Professional", "Martin Fowler", "3ª", 2003));
 
         Biblioteca.livros.get(0).adicionarExemplar(new Exemplar(Biblioteca.livros.get(0), "01"));
+        Biblioteca.livros.get(0).adicionarExemplar(new Exemplar(Biblioteca.livros.get(0), "02"));
+        Biblioteca.livros.get(1).adicionarExemplar(new Exemplar(Biblioteca.livros.get(1), "03"));
+        Biblioteca.livros.get(2).adicionarExemplar(new Exemplar(Biblioteca.livros.get(2), "04"));
+        Biblioteca.livros.get(3).adicionarExemplar(new Exemplar(Biblioteca.livros.get(3), "05"));
+        Biblioteca.livros.get(4).adicionarExemplar(new Exemplar(Biblioteca.livros.get(4), "06"));
+        Biblioteca.livros.get(4).adicionarExemplar(new Exemplar(Biblioteca.livros.get(4), "07"));
+        Biblioteca.livros.get(6).adicionarExemplar(new Exemplar(Biblioteca.livros.get(6), "08"));
+        Biblioteca.livros.get(6).adicionarExemplar(new Exemplar(Biblioteca.livros.get(6), "09"));
 
         // biblioteca.adicionarExemplar(new Exemplar(livro1, "01"));
         // biblioteca.adicionarExemplar(new Exemplar(livro1, "02"));

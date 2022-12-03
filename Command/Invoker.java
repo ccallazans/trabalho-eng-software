@@ -17,7 +17,7 @@ public class Invoker {
         cmds.put("liv", new ConsultaLivroCommand());
         cmds.put("usu", new ConsultaUsuarioCommand());
         cmds.put("ntf", new ConsultaProfessorCommand());
-        cmds.put("sair", new SairCommand());
+        cmds.put("sai", new SairCommand());
     }
 
     public void service(String[] userArgs) {

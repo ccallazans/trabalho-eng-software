@@ -6,6 +6,7 @@ public class Disponivel extends EstadoExemplar {
 
     public Disponivel(Exemplar exemplar) {
         super(exemplar);
+        this.status = true;
         // TODO Auto-generated constructor stub
     }
 

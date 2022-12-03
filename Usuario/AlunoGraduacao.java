@@ -1,5 +1,6 @@
 package Usuario;
 
+import DevolverStrategy.Devolver;
 import EmprestimoStrategy.EmprestimoAlunoGraduacao;
 import Livro.Livro;
 import ReservarStrategy.ReservaAlunoGraduacao;
@@ -13,6 +14,7 @@ public class AlunoGraduacao extends Usuario {
         super(codigoIdentificacao, nome);
         this.reservaStrategy = new ReservaAlunoGraduacao();
         this.emprestimoStrategy = new EmprestimoAlunoGraduacao();
+        this.devolverStrategy = new Devolver();
 
     }
 

@@ -135,4 +135,42 @@ public class Livro implements Subject {
     public void adicionarExemplar(Exemplar exemplar) {
         this.exemplares.add(exemplar);
     }
+
+    public boolean isAvailableExemplar(String id) {
+        for (Exemplar exemplar: exemplares) {
+            if ((exemplar.getLivro().getCodigoIdentificacao().equals(id)) && (exemplar.getEstado().status)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int countAvailableExemplar(String id) {
+        int soma = 0;
+        for (Exemplar exemplar: exemplares) {
+            if ((exemplar.getLivro().getCodigoIdentificacao().equals(id)) && (exemplar.getEstado().status)) {
+                soma += 1;
+            }
+        }
+        return soma;
+    }
+
+    public Exemplar getAvaiableExemplarByLivroId(String id) {
+        for (Exemplar exemplar: exemplares) {
+            if ((exemplar.getLivro().getCodigoIdentificacao().equals(id)) && (exemplar.getEstado().status)) {
+                return exemplar;
+            }
+        }
+        return null;
+    }
+
+    public Exemplar getExemplarByIdUsuarioIdLivro(String uid, String lid) {
+        for (Exemplar exemplar: exemplares) {
+            if (exemplar.getUltimoEmprestimo().getLivro().getCodigoIdentificacao().equals(lid)
+                    && exemplar.getUltimoEmprestimo().getUsuario().getCodigoIdentificacao().equals(uid)) {
+                return exemplar;
+            }
+        }
+        return null;
+    }
 }
