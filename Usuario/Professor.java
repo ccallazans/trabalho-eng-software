@@ -1,3 +1,7 @@
+package Usuario;
+
+import ReservarStrategy.ReservaProfessor;
+
 public class Professor extends Usuario {
 
     public static int tempoDeEmprestimoDias = 7;
@@ -6,6 +10,7 @@ public class Professor extends Usuario {
     public Professor(String codigoIdentificacao, String nome) {
         super(codigoIdentificacao, nome);
         this.qtdNotificacoes = 0;
+        this.reservaStrategy = new ReservaProfessor();
     }
 
     @Override

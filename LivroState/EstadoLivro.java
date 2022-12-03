@@ -1,3 +1,6 @@
+package LivroState;
+
+import Livro.Livro;
 
 public abstract class EstadoLivro {
 

@@ -1,4 +1,13 @@
+package Biblioteca;
+
 import java.util.ArrayList;
+
+import Livro.Exemplar;
+import Livro.Livro;
+import Usuario.AlunoGraduacao;
+import Usuario.AlunoPosGraduacao;
+import Usuario.Professor;
+import Usuario.Usuario;
 
 public class Biblioteca {
     private static Biblioteca instance;
@@ -20,17 +29,26 @@ public class Biblioteca {
     }
 
     public void reservar(String idUsuario, String idLivro) {
-        System.out.println("reservou");
 
         Usuario reservaUsuario = EncontrarUsuarioPorId(idUsuario);
         Livro reservaLivro = encontrarLivroPorId(idLivro);
         String data = "aaaa";
 
         if (reservaUsuario != null && reservaLivro != null) {
-            System.out.println("encontrou usuario e livro");
 
-            reservaLivro.addReserva(reservaUsuario, data);
-            reservaUsuario.addReserva(reservaLivro, data);
+            reservaUsuario.getReservaStrategy().reservar(reservaUsuario, reservaLivro, data);
+        }
+
+    }
+
+    public void emprestar(String idUsuario, String idLivro) {
+
+        Usuario emprestimoUsuario = EncontrarUsuarioPorId(idUsuario);
+        Livro emprestimoLivro = encontrarLivroPorId(idLivro);
+
+        if (emprestimoUsuario != null && emprestimoLivro != null) {
+
+            emprestimoUsuario.getEmprestimoStrategy().emprestar(emprestimoUsuario, emprestimoLivro);
         }
 
     }
@@ -77,6 +95,17 @@ public class Biblioteca {
         this.livros.add(new Livro("401", "UML Distilled: A Brief Guide to the Standard Object Modeling Language",
                 "Addison-Wesley Professional", "Martin Fowler", "3ª", 2003));
 
+        Biblioteca.livros.get(0).adicionarExemplar(new Exemplar(Biblioteca.livros.get(0), "01"));
+
+        // biblioteca.adicionarExemplar(new Exemplar(livro1, "01"));
+        // biblioteca.adicionarExemplar(new Exemplar(livro1, "02"));
+        // biblioteca.adicionarExemplar(new Exemplar(livro2, "03"));
+        // biblioteca.adicionarExemplar(new Exemplar(livro3, "04"));
+        // biblioteca.adicionarExemplar(new Exemplar(livro4, "05"));
+        // biblioteca.adicionarExemplar(new Exemplar(livro5, "06"));
+        // biblioteca.adicionarExemplar(new Exemplar(livro5, "07"));
+        // biblioteca.adicionarExemplar(new Exemplar(livro7, "08"));
+        // biblioteca.adicionarExemplar(new Exemplar(livro7, "09"));
     }
 
 }

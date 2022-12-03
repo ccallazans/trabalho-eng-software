@@ -1,13 +1,6 @@
+package Command;
 
 import java.util.HashMap;
-
-import Command.Command;
-import Command.ConsultaLivroCommand;
-import Command.ConsultaProfessorCommand;
-import Command.ConsultaUsuarioCommand;
-import Command.DevolverCommand;
-import Command.ObservadorCommand;
-import Command.SairCommand;
 
 public class Invoker {
     private HashMap cmds = new HashMap();
@@ -18,6 +11,7 @@ public class Invoker {
 
     private void initCommands() {
         cmds.put("dev", new DevolverCommand());
+        cmds.put("emp", new EmprestarCommand());
         cmds.put("res", new ReservarCommand());
         cmds.put("obs", new ObservadorCommand());
         cmds.put("liv", new ConsultaLivroCommand());

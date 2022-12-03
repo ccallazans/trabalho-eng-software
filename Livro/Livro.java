@@ -1,4 +1,12 @@
+package Livro;
+
 import java.util.ArrayList;
+
+import LivroState.EstadoLivro;
+import Observable.Observer;
+import Observable.Subject;
+import Reserva.Reserva;
+import Usuario.Usuario;
 
 public class Livro implements Subject {
 
@@ -52,6 +60,18 @@ public class Livro implements Subject {
         return autores;
     }
 
+    public EstadoLivro getEstado() {
+        return estado;
+    }
+
+    public ArrayList<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public void setReservas(ArrayList<Reserva> reservas) {
+        this.reservas = reservas;
+    }
+
     public void setAutores(String autores) {
         this.autores = autores;
     }
@@ -81,7 +101,7 @@ public class Livro implements Subject {
     }
 
     public void addReserva(Usuario usuario, String data) {
-        this.reservas.add(new Reserva(data, this, usuario));
+        this.reservas.add(new Reserva(this, usuario));
         if (this.reservas.size() > 2) {
             this.notifyObservers();
         }
@@ -113,4 +133,16 @@ public class Livro implements Subject {
         this.estado = estado;
     }
 
+    public Reserva EncontrarReservaPorIdUsuario(String id) {
+        for (Reserva reserva : this.reservas) {
+            if (reserva.getUsuario().getCodigoIdentificacao().equals(id)) {
+                return reserva;
+            }
+        }
+        return null;
+    }
+
+    public void adicionarExemplar(Exemplar exemplar) {
+        this.exemplares.add(exemplar);
+    }
 }
