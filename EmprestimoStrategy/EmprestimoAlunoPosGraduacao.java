@@ -47,11 +47,12 @@ public class EmprestimoAlunoPosGraduacao implements EmprestimoStrategy {
             mensagem = (mensagem != null) ? mensagem : "Insucesso! Qaaaaaaaaaaaa!";
         }
 
-        Boolean regra6 = usuario.hasEmprestimoPorIdLivro(livro.getCodigoIdentificacao());
+        Boolean regra6 = !(usuario.hasEmprestimoPorIdLivro(livro.getCodigoIdentificacao()));
         if (!regra6) {
             mensagem = (mensagem != null) ? mensagem : "Insucesso! Usuário já possui um empréstimo desse livro";
         }
-        if (regra1 && regra2 && regra3 && regra4 && regra5) {
+
+        if (regra1 && regra2 && regra3 && regra4 && regra5 && regra6) {
 
             // Caso exista reseva, remover
             usuario.removeReservaByIdLivro(livro.getCodigoIdentificacao());
