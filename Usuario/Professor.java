@@ -7,7 +7,7 @@ import ReservarStrategy.ReservaProfessor;
 
 public class Professor extends Usuario {
 
-    public static int tempoDeEmprestimoDias = 7;
+
     private int qtdNotificacoes;
 
     public Professor(String codigoIdentificacao, String nome) {
@@ -16,15 +16,10 @@ public class Professor extends Usuario {
         this.reservaStrategy = new ReservaProfessor();
         this.emprestimoStrategy = new EmprestimoProfessor();
         this.devolverStrategy = new Devolver();
+        this.tempoDeEmprestimoDias = 7;
 
     }
 
-    @Override
-    public void update() {
-        // TODO Auto-generated method stub
-        this.setQtdNotificacoes(this.qtdNotificacoes += 1);
-
-    }
 
     public int getQtdNotificacoes() {
         return qtdNotificacoes;

@@ -1,4 +1,4 @@
-package Observable;
+package NotificarObserver;
 
 public interface Observer {
 

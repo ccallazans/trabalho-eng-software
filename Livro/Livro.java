@@ -2,8 +2,8 @@ package Livro;
 
 import java.util.ArrayList;
 
-import Observable.Observer;
-import Observable.Subject;
+import NotificarObserver.Observer;
+import NotificarObserver.Subject;
 import Reserva.Reserva;
 import Usuario.Usuario;
 
@@ -22,6 +22,8 @@ public class Livro implements Subject {
 
     public Livro(String codigoIdentificacao, String titulo, String editora, String autores, String edicao,
             int anoDaPublicação) {
+        this.observers = new ArrayList<Observer>();
+
         this.codigoIdentificacao = codigoIdentificacao;
         this.titulo = titulo;
         this.editora = editora;
@@ -101,26 +103,20 @@ public class Livro implements Subject {
         }
     }
 
+    private final ArrayList<Observer> observers;
+
     @Override
     public void registerObserver(Observer observer) {
         // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void removeOberserver(Observer observer) {
-        // TODO Auto-generated method stub
-
+        this.observers.add(observer);
     }
 
     @Override
     public void notifyObservers() {
         // TODO Auto-generated method stub
-        for (Reserva reserva : this.reservas) {
-            reserva.getUsuario().update();
-
+        for (Observer observer: observers) {
+            observer.update();
         }
-
     }
 
     public Reserva EncontrarReservaPorIdUsuario(String id) {
@@ -172,5 +168,14 @@ public class Livro implements Subject {
             }
         }
         return null;
+    }
+
+    public void removeReservaByIdUsuario(String id) {
+        for (Reserva reserva: reservas) {
+            if (reserva.getUsuario().getCodigoIdentificacao().equals(id)) {
+                reservas.remove(reserva);
+                break;
+            }
+        }
     }
 }

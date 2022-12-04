@@ -13,11 +13,21 @@ public class ReservaProfessor implements ReservarStrategy {
         if (usuario.getReservas().size() >= 3) {
             /// mensagem
             mensagem = "Insucesso! Usuário atingiu o número máximo de reservas.";
+        } else if (usuario.hasReservaByIdLivro(reservaLivro.getCodigoIdentificacao())) {
+            mensagem = "Insucesso! Usuário já possui reserva desse livro.";
         } else {
             mensagem = "Sucesso! Reserva adicionada.";
 
-            reservaLivro.getReservas().add(new Reserva(reservaLivro, usuario));
-            usuario.getReservas().add(new Reserva(reservaLivro, usuario));
+            Reserva novaReserva = new Reserva(reservaLivro, usuario);
+
+            reservaLivro.getReservas().add(novaReserva);
+
+            usuario.getReservas().add(novaReserva);
+            usuario.getAllReservas().add(novaReserva);
+
+            if (reservaLivro.getReservas().size() >= 2) {
+                reservaLivro.notifyObservers();
+            }
         }
 
         System.out.println("Usuário: " + usuario.getNome() +

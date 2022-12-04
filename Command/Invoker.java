@@ -22,6 +22,10 @@ public class Invoker {
 
     public void service(String[] userArgs) {
         Command c = (Command) cmds.get(userArgs[0]);
+        if (c == null) {
+            System.out.println("Insucesso! Comando Inválido!");
+            return;
+        }
         c.execute(userArgs);
     }
 

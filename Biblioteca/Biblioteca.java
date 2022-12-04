@@ -32,7 +32,15 @@ public class Biblioteca {
     public void reservar(String idUsuario, String idLivro) {
 
         Usuario reservaUsuario = EncontrarUsuarioPorId(idUsuario);
+        if (reservaUsuario == null) {
+            System.out.println("Insucesso! Usuário não encontrado");
+            return;
+        }
         Livro reservaLivro = encontrarLivroPorId(idLivro);
+        if (reservaLivro == null) {
+            System.out.println("Insucesso! Livro não encontrado");
+            return;
+        }
         String data = "aaaa";
 
         if (reservaUsuario != null && reservaLivro != null) {
@@ -45,7 +53,15 @@ public class Biblioteca {
     public void emprestar(String idUsuario, String idLivro) {
 
         Usuario emprestimoUsuario = EncontrarUsuarioPorId(idUsuario);
+        if (emprestimoUsuario == null) {
+            System.out.println("Insucesso! Usuário não encontrado");
+            return;
+        }
         Livro emprestimoLivro = encontrarLivroPorId(idLivro);
+        if (emprestimoLivro == null) {
+            System.out.println("Insucesso! Livro não encontrado");
+            return;
+        }
 
         if (emprestimoUsuario != null && emprestimoLivro != null) {
             System.out.println("encontrou");
@@ -56,17 +72,45 @@ public class Biblioteca {
     public void devolver(String idUsuario, String idLivro) {
 
         Usuario devolverEmprestimoUsuario = EncontrarUsuarioPorId(idUsuario);
+        if (devolverEmprestimoUsuario == null) {
+            System.out.println("Insucesso! Usuário não encontrado");
+            return;
+        }
         Livro devolverEmprestimoLivro = encontrarLivroPorId(idLivro);
+        if (devolverEmprestimoLivro == null) {
+            System.out.println("Insucesso! Livro não encontrado");
+            return;
+        }
 
-        if (devolverEmprestimoUsuario != null && devolverEmprestimoLivro != null) {
-            System.out.println("encontrou");
-            devolverEmprestimoUsuario.getDevolverStrategy().devolver(devolverEmprestimoUsuario, devolverEmprestimoLivro);
+        devolverEmprestimoUsuario.getDevolverStrategy().devolver(devolverEmprestimoUsuario, devolverEmprestimoLivro);
+
+    }
+
+    public void observar(String idUsuario, String idLivro) {
+        Usuario usuario = EncontrarUsuarioPorId(idUsuario);
+        if (usuario == null) {
+            System.out.println("Insucesso! Usuário não encontrado");
+            return;
+        }
+        Livro livro = encontrarLivroPorId(idLivro);
+        if (usuario == null) {
+            System.out.println("Insucesso! Livro não encontrado");
+            return;
+        }
+
+        if (usuario != null && livro != null) {
+            livro.registerObserver(usuario);
+            System.out.println("Sucesso!");
         }
     }
 
     public void consultarLivro(String idLivro) {
 
         Livro livro = encontrarLivroPorId(idLivro);
+        if (livro == null) {
+            System.out.println("Insucesso! Livro não encontrado");
+            return;
+        }
         int qntReservas = livro.getReservas().size();
 
         System.out.println("Título: " + livro.getTitulo() +
@@ -95,6 +139,18 @@ public class Biblioteca {
 
     }
 
+    public void consultarUsuario(String id) {
+        Usuario usuario = this.EncontrarUsuarioPorId(id);
+        if (usuario == null) {
+            System.out.println("Insucesso! Usuário não encontrado");
+            return;
+        }
+        usuario.consultar();
+    }
+
+
+
+
     private Usuario EncontrarUsuarioPorId(String id) {
         for (Usuario usuario : this.usuarios) {
             if (usuario.getCodigoIdentificacao().equals(id)) {
@@ -111,6 +167,15 @@ public class Biblioteca {
             }
         }
         return null;
+    }
+
+    public void consultaProfessor(String id) {
+        Usuario usuario = EncontrarUsuarioPorId(id);
+        if (usuario == null) {
+            System.out.println("Insucesso! Usuário não encontrado");
+            return;
+        }
+        usuario.consulta();
     }
 
     //// TESTES

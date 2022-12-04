@@ -11,12 +11,24 @@ public class Emprestimo {
     private Livro livro;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
+    private boolean isFinalizado = false;
 
     public Emprestimo(Usuario usuario, Livro livro, LocalDate limitDate) {
         this.usuario = usuario;
         this.livro = livro;
         this.dataEmprestimo = LocalDate.now();;
         this.dataDevolucao = limitDate;
+    }
+
+    public void setFinalizado(boolean finalizado) {
+        isFinalizado = finalizado;
+    }
+
+    public String getStatus() {
+        if (this.isFinalizado) {
+            return "Finalizado";
+        }
+        return "Emprestado";
     }
 
     public LocalDate getDataEmprestimo() {

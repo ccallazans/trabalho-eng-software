@@ -7,7 +7,6 @@ import ReservarStrategy.ReservaAlunoPosGraduacao;
 
 public class AlunoPosGraduacao extends Usuario {
 
-    public static int tempoDeEmprestimoDias = 4;
     public static int limiteEmprestimoAberto = 4;
 
     public AlunoPosGraduacao(String codigoIdentificacao, String nome) {
@@ -15,12 +14,7 @@ public class AlunoPosGraduacao extends Usuario {
         this.reservaStrategy = new ReservaAlunoPosGraduacao();
         this.emprestimoStrategy = new EmprestimoAlunoPosGraduacao();
         this.devolverStrategy = new Devolver();
-
-    }
-
-    @Override
-    public void update() {
-        // TODO Auto-generated method stub
+        this.tempoDeEmprestimoDias = 4;
 
     }
 

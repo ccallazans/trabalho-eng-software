@@ -17,6 +17,7 @@ public class Devolver implements DevolverStrategy {
 
             // Encontrar o emprestimo e remover da lista de emprestimo
             Emprestimo devEmprestimo = usuario.EncontrarEmprestimoPorIdLivro(emprestimoLivro.getCodigoIdentificacao());
+            devEmprestimo.setFinalizado(true);
             usuario.getEmprestimos().remove(devEmprestimo);
 
             // Encontrar o exemplar emprestado e deixa-lo disponivel novamente
